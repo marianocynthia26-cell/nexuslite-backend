@@ -1,7 +1,7 @@
-// ==============================================================================
+// ============================================================================
 // PRÁCTICA 3: CONSTRUCCIÓN DE UNA PÁGINA WEB UTILIZANDO JAVASCRIPT Y WEB STORAGE
 // INSTITUCIÓN: NEXUSTECHLITE
-// ==============================================================================
+// ============================================================================
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (selectServicio) {
         selectServicio.addEventListener("change", function (evento) {
             const servicioSeleccionado = evento.target.value;
-            
+
             // Muestra una ventana emergente cuando se selecciona una opción
             if (servicioSeleccionado) {
                 alert(`Has seleccionado el servicio: ${servicioSeleccionado}`);
@@ -76,50 +76,5 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-
-    // 5, 6 y 7. Validación de formulario, Alerta interactiva y Web Storage (localStorage)
-    const formularioContacto = document.querySelector("form");
-    if (formularioContacto) {
-        formularioContacto.addEventListener("submit", function (e) {
-            e.preventDefault(); // Evita la recarga automática de la página
-
-            // Captura y limpieza de valores
-            const nombre = document.getElementById("nombre").value.trim();
-            const correo = document.getElementById("correo").value.trim();
-            const telefono = document.getElementById("telefono").value.trim();
-            const servicio = document.getElementById("servicio").value;
-            const mensaje = document.getElementById("mensaje").value.trim();
-
-            // Validar que ningún campo se envíe vacío
-            if (!nombre || !correo || !telefono || !mensaje) {
-                alert("Error: Por favor completa todos los campos del formulario antes de enviar.");
-                return;
-            }
-
-            // Estructura de objeto con los datos procesados
-            const registroUsuario = {
-                nombre: nombre,
-                correo: correo,
-                telefono: telefono,
-                servicio: servicio,
-                mensaje: mensaje,
-                fechaRegistro: new Date().toLocaleString()
-            };
-
-            // Guardar en el almacenamiento local (localStorage) comprobando soporte previo
-            if (soportaWebStorage()) {
-                localStorage.setItem("registroContacto", JSON.stringify(registroUsuario));
-                console.log("[LOCALSTORAGE] Registro guardado con éxito.");
-            } else {
-                alert("Atención: No se pudo almacenar la información localmente porque tu navegador no soporta Web Storage.");
-            }
-
-            // Mensaje de confirmación interactivo
-            alert(`¡Registro exitoso! Gracias ${nombre}. Tu solicitud para el servicio de '${servicio}' ha sido guardada correctamente.`);
-
-            // Limpieza de campos tras el registro exitoso
-            formularioContacto.reset();
-        });
-    }
 
 });

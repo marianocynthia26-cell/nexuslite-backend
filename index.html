@@ -16,7 +16,7 @@
         <h1>NEXUSTECHLITE</h1>
         <p>Innovación y soporte tecnológico para la comunidad</p>
         <a href="#Contacto" class="boton">Conoce nuestros servicios</a>
-        
+
         <!-- Contenedor del reloj en vivo (12 horas) -->
         <div id="reloj" style="font-weight: bold; margin-top: 15px; font-size: 1.1rem; color: #ffffff;"></div>
     </header>
@@ -87,12 +87,12 @@
             <p><small>Sujeto a disponibilidad de horarios.</small></p>
         </aside>
 
-        <!-- Formulario de Contacto -->
+        <!-- Formulario de Contacto (CORREGIDO PARA FASE 4) -->
         <section id="Contacto">
             <h2>Solicita Información</h2>
             <p>Completa el siguiente formulario y un asesor de NEXUSTECHLITE podrá ponerse en contacto con usted.</p>
-            
-            <form action="#" method="post">
+
+            <form action="procesar.php" method="POST">
                 <div>
                     <label for="nombre">Nombre Completo</label><br>
                     <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required>
@@ -110,17 +110,17 @@
 
                 <div>
                     <label for="servicio">Tipo de servicio</label><br>
-                    <select id="servicio" name="servicio">
-                        <option value="soporte">Soporte Técnico</option>
-                        <option value="web">Desarrollo Web</option>
-                        <option value="redes">Redes y Conectividad</option>
-                        <option value="nube">Servicios en la nube</option>
+                    <select id="servicio" name="servicio" required>
+                        <option value="Soporte Técnico">Soporte Técnico</option>
+                        <option value="Desarrollo Web">Desarrollo Web</option>
+                        <option value="Redes y Conectividad">Redes y Conectividad</option>
+                        <option value="Servicios en la nube">Servicios en la nube</option>
                     </select>
                 </div><br>
 
                 <div>
                     <label for="mensaje">Mensaje</label><br>
-                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje..."></textarea>
+                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje..." required></textarea>
                 </div><br>
 
                 <div>
